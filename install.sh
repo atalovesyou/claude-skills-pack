@@ -80,6 +80,30 @@ for plugin in "${PLUGINS[@]}"; do
 done
 
 echo ""
+echo "Step 4: MCP Servers (Optional)..."
+echo "-------------------------------------------"
+echo ""
+read -p "Install MCP servers (Render, Modal)? [y/N] " -n 1 -r
+echo ""
+
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "  Adding MCP server: render"
+    claude mcp add render --type http --url https://mcp.render.com/mcp 2>/dev/null || echo "    (already exists or failed)"
+
+    echo "  Adding MCP server: modal-toolbox"
+    claude mcp add modal-toolbox --type stdio -- uvx modal-mcp-toolbox 2>/dev/null || echo "    (already exists or failed)"
+
+    echo ""
+    echo "  MCP servers installed!"
+    echo "  Note: You may need to authenticate with Render and Modal separately."
+else
+    echo "  Skipping MCP servers."
+    echo "  You can install them later with:"
+    echo "    claude mcp add render --type http --url https://mcp.render.com/mcp"
+    echo "    claude mcp add modal-toolbox --type stdio -- uvx modal-mcp-toolbox"
+fi
+
+echo ""
 echo "=========================================="
 echo "  Installation Complete!"
 echo "=========================================="
@@ -88,9 +112,11 @@ echo "Installed:"
 echo "  - 25 skills (available via /skill-name)"
 echo "  - 4 marketplaces"
 echo "  - 14 plugins"
+echo "  - 2 MCP servers (if selected)"
 echo ""
 echo "To verify, run:"
 echo "  claude plugins list"
+echo "  claude mcp list"
 echo ""
 echo "Skills are automatically available in Claude Code."
 echo "Use them by referencing them in your prompts or"

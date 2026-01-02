@@ -98,6 +98,29 @@ The installer adds these plugin marketplaces:
 - `dotclaude-plugins` - Community plugins
 - `anthropic-agent-skills` - Official Anthropic skills
 
+### MCP Servers (Optional)
+
+Pre-configured MCP servers for enhanced capabilities:
+
+| Server | Type | Description |
+|--------|------|-------------|
+| `render` | HTTP | Deploy and manage apps on [Render](https://render.com) |
+| `modal-toolbox` | stdio | Run Python in sandboxes, generate images with [Modal](https://modal.com) |
+
+Install MCP servers manually:
+```bash
+# Render (cloud deployment)
+claude mcp add render --type http --url https://mcp.render.com/mcp
+
+# Modal Toolbox (Python sandboxes, image generation)
+claude mcp add modal-toolbox --type stdio -- uvx modal-mcp-toolbox
+```
+
+Or copy the config file:
+```bash
+cp mcp-servers/.mcp.json ~/.mcp.json
+```
+
 ## Manual Installation
 
 If you prefer to install components individually:

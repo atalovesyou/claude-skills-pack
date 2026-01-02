@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "render": {
+      "type": "http",
+      "url": "https://mcp.render.com/mcp"
+    },
+    "modal-toolbox": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["modal-mcp-toolbox"]
+    }
+  }
+}
