@@ -8,6 +8,39 @@
 
 A curated collection of 25 skills and 14 plugins for Claude Code that enhance your AI-assisted development workflow.
 
+## Demo
+
+```
+$ ./install.sh
+
+==========================================
+  Claude Skills Pack Installer
+==========================================
+
+Step 1: Installing Skills...
+  ✓ senior-frontend
+  ✓ paul-graham-wisdom
+  ✓ systematic-debugging
+  ✓ code-standards
+  ... (25 skills total)
+
+Step 2: Adding Marketplaces...
+  ✓ claude-code-workflows
+  ✓ dotclaude-plugins
+  ✓ every-marketplace
+  ✓ anthropic-agent-skills
+
+Step 3: Installing Plugins...
+  ✓ code-review
+  ✓ python-development
+  ✓ frontend-design
+  ... (14 plugins total)
+
+==========================================
+  ✅ Installation Complete!
+==========================================
+```
+
 ## Quick Install
 
 ```bash
